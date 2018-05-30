@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+img {
+    -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
+    filter: blur(5px);
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+</style>
+
+
+<head>
+  <title>ETC Traducciones</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">ETC Traducciones</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Admin</a></li>
+    </ul>
+  </div>
+</nav>
+  
+ 
+   
+  <div class="container transparent" >
+  <h2>Realiza una cotizacion:</h2>
+  <!--<form class="form-horizontal" action="">-->
+    <form class="form-horizontal" method="post">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="name">Nombre:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="names" placeholder="Ingresa nombre completo" name="names">
+    </div>
+</div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Email:</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="email" placeholder="Ingresa tu email" name="email">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="telephone">Telf/Celular:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="tel" placeholder="Ingresa tu numero telefonico o movil" name="tel">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="name">Documento:</label>
+      <div class="col-sm-10">
+        <input type="text" id="names" placeholder="Ingresa el texo del documento" name="names">
+        <button onclick="myFunction()">Examinar</button>
+    </div>
+    </div>
+
+    
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-11">
+        <button  alig onclick="">Cotizar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<footer class="footer">
+  <div class="container-fluid p-3 p-md-5">
+    <p>Designed and built with all the love in the world by <a href="https://twitter.com/mdo" target="_blank" rel="noopener">@mdo</a> and <a href="https://twitter.com/fat" target="_blank" rel="noopener">@fat</a>. Maintained by the <a href="https://github.com/orgs/twbs/people">core team</a> with the help of <a href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</p>
+    <p>Currently v4.1.0. Code licensed <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank" rel="license noopener">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license noopener">CC BY 3.0</a>.</p>
+  </div>
+</footer>
+
+
+
+  
+<script>
+/*function myFunction() {
+    var x = document.getElementById("myFile");
+    x.disabled = true;
+}*/
+</script>  
+
+<script>
+
+  /*var url="/home/andres/Descargas/Malla.pdf";
+  $(document).ready(function () {
+    PDFJS.getDocument('/loc/testpdf.pdf');
+})*/
+  /*PDFJS.workerSrc = "pdf.worker.min.js";
+  
+  PDFJS.getDocument(url).then(function (pdfDoc_) {
+        pdfDoc = pdfDoc_;   
+        pdfDoc.getMetadata().then(function(stuff) {
+            console.log(stuff); // Metadata object here
+        }).catch(function(err) {
+           console.log('Error getting meta data');
+           console.log(err);
+        });
+
+       // Render the first page or whatever here
+       // More code . . . 
+    }).catch(function(err) {
+        console.log('Error getting PDF from ' + url);
+        console.log(err);
+    });*/
+  
+</script>
+
+
+
+</body>
+</html>
