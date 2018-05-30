@@ -6,15 +6,19 @@ img {
     filter: blur(5px);
 }
 
+
 .footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: black;
-    color: black;
+    color: white;
     text-align: center;
 }
+ /*input:placeholder-shown{
+   font-weight: bold;
+ }*/
 
 </style>
 
@@ -43,9 +47,9 @@ img {
     </ul>
   </div>
 </nav>
-
-
-
+  
+ 
+   
   <div class="container transparent" >
   <h2>Realiza una cotizacion:</h2>
   <!--<form class="form-horizontal" action="">-->
@@ -62,7 +66,7 @@ img {
         <input type="email" class="form-control" id="email" placeholder="Ingresa tu email" name="email">
       </div>
     </div>
-
+    
     <div class="form-group">
       <label class="control-label col-sm-2" for="telephone">Telf/Celular:</label>
       <div class="col-sm-10">
@@ -73,37 +77,58 @@ img {
     <div class="form-group">
       <label class="control-label col-sm-2" for="name">Documento:</label>
       <div class="col-sm-10">
-        <input type="text" id="names" placeholder="Ingresa el texo del documento" name="names">
+        <input type="text" id="texto" placeholder="Ingresa el texo del documento" name="names"><span id="mySpan" style="color:red"></span>
         <button onclick="myFunction()">Examinar</button>
     </div>
     </div>
 
-
-    <div class="form-group">
+    
+    <!--<div class="form-group">        
       <div class="col-sm-offset-2 col-sm-11">
         <button  alig onclick="">Cotizar</button>
       </div>
     </div>
   </form>
+</div> -->
+
+
+ 
+  </form>
+</div>
+
+  <div class="container">        
+      <div class="col-sm-offset-2 col-sm-11">
+        <button  alig onclick="saludar()">Cotizar</button>
+      </div>
+  </div>
+
+
+<div class="container">
+<footer class="footer">
+  <div class="container-fluid p-3 p-md-5">
+    <p>Producciones Rossetta</p>
+    <p>Version v0.0.4 <a href="https://github.com/velascoandrs/Etc-Traducciones/tree/master" target="_blank" rel="license noopener">Proyecto</a></p>
+  </div>
+</footer>
 </div>
 
 
-<footer class="footer">
-  <div class="container-fluid p-3 p-md-5">
-    <p>Designed and built with all the love in the world by <a href="https://twitter.com/mdo" target="_blank" rel="noopener">@mdo</a> and <a href="https://twitter.com/fat" target="_blank" rel="noopener">@fat</a>. Maintained by the <a href="https://github.com/orgs/twbs/people">core team</a> with the help of <a href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</p>
-    <p>Currently v4.1.0. Code licensed <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank" rel="license noopener">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license noopener">CC BY 3.0</a>.</p>
-  </div>
-</footer>
-
-
-
-
+  
 <script>
-function myFunction() {
+/*function myFunction() {
     var x = document.getElementById("myFile");
     x.disabled = true;
+}*/
+
+function saludar(){
+  var spanEle =document.getElementById('mySpan');
+  var texto=document.getElementById('texto').value;
+  var res = texto.split(" ");
+  console.log("Las palabras totales: "+res.length);
+  spanEle.innerText = "Total de palabras: "+res.length; //setting text
+  //spanEle.innerTHTML = ; // setting html
 }
-</script>
+</script>  
 
 <script>
 
@@ -112,9 +137,9 @@ function myFunction() {
     PDFJS.getDocument('/loc/testpdf.pdf');
 })*/
   /*PDFJS.workerSrc = "pdf.worker.min.js";
-
+  
   PDFJS.getDocument(url).then(function (pdfDoc_) {
-        pdfDoc = pdfDoc_;
+        pdfDoc = pdfDoc_;   
         pdfDoc.getMetadata().then(function(stuff) {
             console.log(stuff); // Metadata object here
         }).catch(function(err) {
@@ -123,12 +148,12 @@ function myFunction() {
         });
 
        // Render the first page or whatever here
-       // More code . . .
+       // More code . . . 
     }).catch(function(err) {
         console.log('Error getting PDF from ' + url);
         console.log(err);
     });*/
-
+  
 </script>
 
 
