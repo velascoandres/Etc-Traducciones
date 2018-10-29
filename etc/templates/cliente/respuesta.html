@@ -1,0 +1,38 @@
+{% extends 'base3.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block services %}
+{% endblock %}
+
+
+{% block banner %}
+{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+      <div class="row justify-content-center">
+        <div class="banner-content">
+        <h1>Envia una respuesta al cliente </h1>
+          </div>
+        <div class="col-md-10 col-sm-12">
+          <div class="card mb-3">
+            <div class="card-body">
+      			  <form method="post" enctype="multipart/form-data">
+        			{% csrf_token %}
+        			<input type="hidden" name="next" value="{{ next }}">
+        			{{ form|crispy }}
+        			<button type="submit" class="btn btn-success button"><span>Enviar</span></button>
+      			  </form>
+            </div>
+             
+          </div>
+          <footer>
+          </footer>
+        </div>
+      </div>
+    </div>
+     
+
+{% endblock %}
+

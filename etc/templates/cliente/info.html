@@ -1,0 +1,37 @@
+{% extends 'base3.html' %}
+
+
+<!--template-->
+
+
+
+
+
+{% block services %}
+{% endblock %}
+
+
+{% block banner %}
+{% endblock %}
+{% block content %}
+{% block img %}
+{% endblock %}
+    <div class="container">
+					{% csrf_token %}
+					<div class="row fullscreen d-flex align-items-center justify-content-center">
+						<div class="banner-content">
+							{% block sh %}
+							<h1>
+								Datos registrados con exito				
+							</h1>
+							<p class="pt-10 pb-20">
+								El administrador, necesita comprobar tu informacion, para activar tu cuenta. Dentro de poco
+								seras notificado por correo electronico.
+							</p>
+							{% endblock %}
+						</div>											
+					</div>
+					
+				</div>
+
+{% endblock %}

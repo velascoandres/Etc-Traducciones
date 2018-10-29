@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='base.html'), name='home'),
+    path('', TemplateView.as_view(template_name='base3.html'), name='home'),
     path('usuario/', include(('apps.usuarios.urls','usuarios'),namespace="usuarios")),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('pagos/', include(('apps.pagos.urls','pagos'),namespace="pagos")),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+ static(settings.FILE_URL, file_root=settings.FILE_ROOT)

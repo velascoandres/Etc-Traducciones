@@ -1,0 +1,355 @@
+{% load staticfiles %}
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="codepixer">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>ETC Traducciones</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+			<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+			<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+			<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+			<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">					
+			<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+			<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+			<link rel="stylesheet" href="{% static 'css/main.css' %}">
+		</head>
+		<body>
+
+			  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a href="/"><img src="{% static 'img/logo3.jpg' %}" alt="" title="" /></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      {% block services %}
+	  <li class="nav-item">
+	  	<a class="nav-link" href="#offer">Servicios</a>
+	  </li>
+	  {% endblock %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'usuarios:cotizar' %}">Cotizar</a>
+      </li>
+       {% if user.is_authenticated %}
+       <li class="nav-item">
+        <a class="nav-link" href="{% url 'usuarios:listar' %}">Documentos</a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ user.username }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'usuarios:logout' %}">Salir</a>
+ 
+
+        </div>
+      </li>
+      {% else %}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Trabaja con Nosotros
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'usuarios:login' %}">Login</a>
+          <a class="dropdown-item" href="{% url 'usuarios:crear_traductor' %}">Registrarme como traductor</a>
+
+        </div>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+
+			<!-- start banner Area -->
+			{% block banner%}
+			<section class="banner-area" id="home">	
+				<div class="container">
+					
+					<div class="row fullscreen d-flex align-items-center justify-content-center">
+						<div class="banner-content">
+							{% block sh %}
+							<h1>
+								Servicio de Traducción Garantizado				
+							</h1>
+							<p class="pt-10 pb-20">
+								        <strong>¿Necesitas ayuda con la traducción de tu proyecto, paper, abstracts, documento?</strong> Pues aquí está tu solución. Asesoría y formulario gratuito para estudiantes que deseen aplicar a becas de estudios en Rusia. ¡Cumple tus sueños!
+							</p>
+							{% endblock %}
+						</div>											
+					</div>
+					
+				</div>
+
+			</section>
+			{% endblock %}
+			{% block content %}
+			<!-- End banner Area -->	
+				<!-- Start testomial Area -->
+				<!--
+			<section class="testomial-area section-gap">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">¿Que ofrecemos?</h1>
+								<p>Somos los mejores en.</p>
+							</div>
+						</div>
+					</div>						
+					<div class="row">
+						<div class="active-tstimonial-carusel">
+							<div class="single-testimonial item">
+								{% block img %}
+								<img class="mx-auto" src="{% static 'img/image-2.jpg' %}" alt="">
+								{% endblock %}
+								<h4>Traducciones personales y certificadas</h4>
+								
+								
+							</div>
+							<div class="single-testimonial item">
+								<img class="mx-auto" src="{% static 'img/image-3.jpg' %}" alt="">
+								<h4>Traducciones para empresas</h4>
+								
+								
+								
+							</div>
+							<div class="single-testimonial item">
+								<img class="mx-auto" src="{% static 'img/descarga (2).jpg' %}" alt="">
+								<h4>Traducción Certificada</h4>
+								
+								
+								
+							</div>	
+							<div class="single-testimonial item">
+								<img class="mx-auto" src="{% static 'img/TermoeléctricaCFG-300x156.jpg' %}" alt="">
+								<h4>Traducción Técnica</h4>
+								
+								
+								
+							</div>
+							<div class="single-testimonial item">
+								<img class="mx-auto" src="{% static 'img/images (3).jpg' %}" alt="">
+								<h4>Redacción, Edición</h4>
+								
+								
+								
+							</div>
+							<div class="single-testimonial item">
+								<img class="mx-auto" src="{% static 'img/legal trans.jpg' %}" alt="">
+								<h4>Traducción Legal</h4>
+								
+								
+								
+							</div>															
+							<div class="single-testimonial item">
+								<img class="mx-auto" src="{% static 'img/images (2).jpg' %}" alt="">
+								<h4>Traducción Científica</h4>
+								
+								
+							</div>
+							<div class="single-testimonial item">
+								<img class="mx-auto" src="{% static 'img/descarga.jpg' %}" alt="">
+								<h4>Interpretación</h4>	
+							</div>
+																				
+						</div>
+					</div>
+				</div>	
+			</section>
+			-->
+			<!-- End testomial Area -->
+			<!-- Start we-offer Area -->
+			<section class="we-offer-area section-gap" id="offer">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-10">
+							<div class="title text-center">
+								<h1 class="mb-10">Nuestros servicios</h1>
+								<p>Ofrecemos la mejor calidad en cada uno de nuestro servicios.</p>
+							</div>
+						</div>
+					</div>						
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="single-offer d-flex flex-row pb-30">
+								<div class="icon">
+									<img src="{% static 'img/s1.png' %}" alt="">
+								</div>
+								<div class="desc">
+									<a>
+									<h4>Traducciones personales y certificadas</h4></a>
+									<p>
+										Traducción certificada de documentos de inmigración, certificados, títulos, poderes, obtenidos en el extranjero para su uso en las diferentes instituciones del Ecuador.
+									</p>
+								</div>
+							</div>
+							<div class="single-offer d-flex flex-row pb-30">
+								<div class="icon">
+									<img src="{% static 'img/s3.png' %}" alt="">
+								</div>
+								<div class="desc">
+									<a><h4>Traducciones para empresas</h4></a>
+									<p>
+										Traducciones técnicas y legales. Traducimos tu proyecto, página web, especificaciones técnicas, contratos, reglamentos
+      									internos, normas, correspondencia. ¡Habla en el mismo lenguaje de tus clientes!
+									</p>
+								</div>
+							</div>
+							<div class="single-offer d-flex flex-row pb-30">
+								<div class="icon">
+									<img src="{% static 'img/s2.png' %}" alt="">
+								</div>
+								<div class="desc">
+									<a><h4>Traducción Certificada</h4></a>
+									<p>
+										Documentos obtenidos en el exterior para su presentación en el Ecuador: títulos, apostillas, contratos, poderes,
+          								partidas de nacimiento, entre otros.
+									</p>
+								</div>
+							</div>
+
+							<div class="single-offer d-flex flex-row pb-30">
+								<div class="icon">
+									<img src="{% static 'img/s4.png' %}" alt="">
+								</div>
+								<div class="desc">
+									<a><h4>
+										Interpretación
+									</h4></a>
+									<p>
+										Interpretación simultánea y consecutiva en reuniones, conferencias, llamadas telefónicas, vía skype. Contamos con
+          								intérpretes con más de 10 años de experiencia.
+									</p>
+								</div>
+								</div>
+						</div>
+						
+							<div class="col-lg-6">
+							<div class="single-offer d-flex flex-row pb-30">
+								<div class="icon">
+									<img src="{% static 'img/s4.png' %}" alt="">
+								</div>
+								<div class="desc">
+									<a><h4>Traducción Técnica</h4></a>
+									<p>
+										Construcción civil, electricidad, mecánica, electromecánica, aviación, medicina general, nefrología, gas y petróleo,
+          								tecnologías de la información, marketing electrónico.
+									</p>
+								</div>
+							</div>
+							
+							
+							<div class="single-offer d-flex flex-row pb-30">
+								<div class="icon">
+									<img src="{% static 'img/s4.png' %}" alt="">
+								</div>
+								<div class="desc">
+									<a><h4>Redacción, Edición</h4>
+									</a>
+									<p>
+										Redacción monolingüe: su objetivo es producir un texto correcto. Redacción bilingüe: su objetivo es producir un texto
+          								fiel al original.
+									</p>
+								</div>
+							</div>
+							
+							
+							<div class="single-offer d-flex flex-row pb-30">
+								<div class="icon">
+									<img src="{% static 'img/s4.png' %}" alt="">
+								</div>
+								<div class="desc">
+									<a><h4>
+										Traducción Legal
+									</h4></a>
+									<p>
+										Traducción de documentos jurídicos: contratos, poderes, laudos, escrituras públicas, reglamentos internos, documentación
+          								de licitaciones, etc.
+									</p>
+								</div>
+							</div>
+							<div class="single-offer d-flex flex-row pb-30">
+								<div class="icon">
+									<img src="{% static 'img/s4.png' %}" alt="">
+								</div>
+								<div class="desc">
+									<a><h4>
+										Traducción Científica
+									</h4></a>
+									<p>
+										Traducción y proofreading de artículos científicos del ruso e inglés al español y viceversa. Traductores nativos
+          								con experiencia en publicaciones.
+									</p>
+								</div>
+							</div>
+							</div>
+
+						</div>												
+					</div>
+				</div>	
+			</section>
+			<!-- End we-offer Area -->
+			
+	
+
+			
+
+				
+
+
+			
+		
+			
+
+		
+			
+			{% endblock %}
+
+			<!-- start footer Area -->		
+
+			<!-- End footer Area -->		
+			{% block js %}
+			<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>			
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="{% static 'js/easing.min.js' %}"></script>			
+			<script src="{% static 'js/hoverIntent.js' %}"></script>
+			<script src="{% static 'js/superfish.min.js' %}"></script>	
+			<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+			<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>	
+			<script src="{% static 'js/owl.carousel.min.js' %}"></script>			
+			<script src="{% static 'js/jquery.sticky.js' %}"></script>
+			<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>			
+			<script src="{% static 'js/parallax.min.js' %}"></script>		
+			<script src="{% static 'js/mail-script.js' %}"></script>	
+			<script src="{% static 'js/main.js' %}"></script>	
+			{% endblock %}
+			{% block exjs %}
+			{% endblock %}
+		</body>
+	</html>
+
+
+

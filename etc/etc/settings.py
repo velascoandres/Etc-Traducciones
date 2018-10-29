@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'apps.usuarios',
+    'apps.pagos',
 ]
 
 MIDDLEWARE = [
@@ -76,13 +77,21 @@ WSGI_APPLICATION = 'etc.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
+   'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'etc',
+        'USER':'andres',
+        'PASSWORD':'1234',
+        'HOST':'127.0.0.1',
+        'PORT':'3306', 
+
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
-
+}
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -105,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-mx'
 
 TIME_ZONE = 'UTC'
 
@@ -119,13 +128,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+AUTH_USER_MODEL = "usuarios.User" 
 #AUTH_USER_MODEL = "usuarios.User" 
 
 STATIC_URL = '/static/'
 #MEDIA_URL = '/media/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+FILE_ROOT=os.path.join(BASE_DIR, 'files')
 MEDIA_URL = '/media/'
+FILE_URL = '/files/'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = 'home'
@@ -138,3 +150,22 @@ EMAIL_HOST_PASSWORD = 'PassWord12345'
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+SITE_URL = 'http://127.0.0.1:8000'
+
+#Credenciales de PayPal
+PAYPAL_MODE= "sandbox"
+#PAYPAL_CLIENT_ID  = "AdLvQZ2abXeFBLOubgyuiUsFejSVUTny5qG-zb3BG_SZNjsaf4b884G07YhnvdoJHgujSd1iRRtAy9-m"
+#PAYPAL_CLIENT_SECRET = "EDbe1J6ZKV8sCtCJBJzmA-GPF4t4V9i6foFALlQga__3m3EZNYX_yq4SrOadok1aIHgC4kANqORsMRKf"
+
+PAYPAL_CLIENT_ID  = "ATLxSTKroZGswqMDC2EjTSGAjJQXxpE8bEpM1b6Ul57HEuoL4RTy7q51wEohHjwgUqOwv3KR29KS9bLZ"
+PAYPAL_CLIENT_SECRET = "EIvVRAcBTqsuuIcDgSngyDTQrQLWb3Yaawgr62LzoxOn1KZdwfhMw__0QrJNu-pda3hoScPRCVhFH_mM"
+
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'objetosaprendizajeslibres@gmail.com'
+EMAIL_HOST_PASSWORD = 'PassWord12345'

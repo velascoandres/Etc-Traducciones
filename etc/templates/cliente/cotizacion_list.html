@@ -1,0 +1,111 @@
+{%extends 'base3.html' %}
+{% load static %}
+
+{% block services %}
+{% endblock %}
+
+
+{% block banner %}
+{% endblock %}
+
+
+
+{% block content %}
+<div class="row justify-content-center">
+        <div class="banner-content">
+        <h1>Documentos por traducir </h1>
+         </div>
+</div>
+<div class="table-responsive">
+<table class="table  table-sm table-bordered table-dark table-hover">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>Titulo</td>
+			<td>Autor</td>
+			<td>Idioma Origen</td>
+			<td>Idioma Destino</td>
+			<td>Tipo documento</td>
+			<td>Fecha Limite</td>
+			<td>Email</td>
+			<td>Telefono</td>
+			<td>Comentario</td>
+			<td>Precio</td>
+			<td>Acciones</td>
+			
+		</tr>		
+	</thead>
+	<tbody>
+		
+		{% if cotizaciones %}
+		{% for cotizacion in cotizaciones %}
+		<tr>
+			<td>{{ cotizacion.id }}</td>
+			<td>{{ cotizacion.titulo }}</td>
+			<td>{{ cotizacion.nombres }}</td>
+			<td>{{ cotizacion.idioma_origen }}</td>
+			<td>{{ cotizacion.idioma_destino }}</td>
+			<td>{{ cotizacion.tipo_documento }}</td>
+			<td>{{ cotizacion.fecha_limite }}</td>
+			<td>{{ cotizacion.email }}</td>
+			<td>{{ cotizacion.telefono }}</td>
+			{% if cotizacion.comentario %}
+			<td>{{ cotizacion.comentario }}</td>
+			{% else %}
+			<td>SIN COMENTARIO</td>
+			{% endif %}
+			<td>${{ cotizacion.precio }}</td>
+			
+			<td>
+				
+				<a class="btn btn-danger" href="{% url 'usuarios:documento_descargar' cotizacion.id %}">
+					 <i class="fa fa-download" ></i>
+				</a>
+
+
+				<a class="btn btn-info" href="{% url 'usuarios:respuesta' cotizacion.id %}">
+					 <i class="fa fa-envelope-o" ></i>
+				</a>
+
+				<a class="btn btn-danger" data-toggle="modal" data-target="#{{ cotizacion.id }}">
+					 <i class="fa fa-times-rectangle" ></i>
+				</a>
+
+
+			</td>
+				<div class="modal fade" id="{{ cotizacion.id }}" role="dialog">
+   					 <div class="modal-dialog">
+    
+     				 <!-- Modal content-->
+      				<div class="modal-content">
+        			<div class="modal-header">
+         			 <button type="button" class="close" data-dismiss="modal">&times;</button>
+         			 <h4 class="modal-title"></h4>
+        			</div>
+       				 <div class="modal-body">
+         			 <p><strong>¿ Quiere despachar el documento "{{ cotizacion.titulo }}"?</strong><br>
+         			 	Una vez que se despacha el documento contará como traducido y no aparecerá en la lista.
+         			 	<br>
+         			 	Si despachó un documento por accidente, contacte con el admistrador.
+         			 </p>
+        				</div>
+       				 <div class="modal-footer">
+       				 	 <a class="btn btn-primary" href="{% url 'usuarios:despachar' cotizacion.id %}">Aceptar</a>
+         				 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        				</div>
+      				</div>
+      
+    				</div>
+  			</div>
+			
+		</tr>
+		{% endfor %}
+	
+		{% else %}
+		<h1>No hay registros de Objetos de aprendizaje</h1>
+		{% endif %}
+	</tbody>
+
+</table>
+</div>
+{% endblock %}

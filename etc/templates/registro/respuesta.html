@@ -1,0 +1,36 @@
+{% extends 'base3.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block services %}
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="center-block text-center">
+                <h1>¡Cotizacion Realizada!</h1>
+                <h3>Elige uno de los metodos de pago.</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="container p-3 mb-2">
+    <div class="col-md-8 col-sm-10 col-12">
+      <h3> Total de palabras: {{ total }}</h3>
+      <p> Dentro de las próximas horas uno de nuestros traductores se pondrá en contacto contigo para darte los detalles de la cotización </p>
+      <h2> Paypal </h2>
+      <a href="{% url 'pagos:pago-paypal' cotizacion.id %}" class="btn btn-success"><i class="fa fa-paypal"></i>
+      Comprar {{cotizacion.precio}}$
+      </a>
+    </div>
+
+  </div>
+{% endblock %}
